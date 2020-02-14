@@ -13,14 +13,16 @@ function Players() {
   return (
     <div>
       <h2>Most Searched Players: </h2>
-      {data &&
-        data.map((player) => (
-          <div key={player.id} style={styles}>
-            <h2 data-testid="name"> Name: {player.name} </h2>
-            <h3 data-testid="country">Country: {player.country} </h3>
-            <p data-testid="searches">Searches: {player.searches} </p>
-          </div>
-        ))}
+      <div className="players-container">
+        {data &&
+          data.map((player) => (
+            <div key={player.id} style={styles}>
+              <h2 data-testid="name"> Name: {player.name} </h2>
+              <h3 data-testid="country">Country: {player.country} </h3>
+              <p data-testid="searches">Searches: {player.searches} </p>
+            </div>
+          ))}
+      </div>
     </div>
   );
 }

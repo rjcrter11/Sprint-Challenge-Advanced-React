@@ -1,7 +1,6 @@
 import React from "react";
 import Players from "./Players";
 import { render } from "@testing-library/react";
-import "@testing-library/jest-dom";
 import { unmountComponentAtNode } from "react-dom";
 
 test("renders without crashing", () => {
@@ -15,5 +14,4 @@ test("title renders", () => {
   const header = getByText(/most searched players/i);
 
   expect(header).toBeTruthy();
-  expect(header).not.toBeFalsy();
 });

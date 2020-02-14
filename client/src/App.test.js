@@ -2,7 +2,6 @@ import React from "react";
 import ReactDOM from "react-dom";
 import App from "./App";
 import { render, fireEvent } from "@testing-library/react";
-import "@testing-library/jest-dom";
 
 it("renders without crashing", () => {
   const div = document.createElement("div");
@@ -18,8 +17,12 @@ test("header renders", () => {
 });
 
 test("button renders and fires", () => {
-  const { getByTestId } = render(<App />);
+  const { getByTestId, getByText } = render(<App />);
   getByTestId(/toggle-btn/i);
 
   fireEvent.click(getByTestId(/toggle-btn/i));
+
+  const button = getByText(/dark mode/i);
+  expect(button).toBeTruthy();
+  expect(button).not.toBeFalsy();
 });
