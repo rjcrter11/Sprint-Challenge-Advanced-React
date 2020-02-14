@@ -2,6 +2,7 @@ import React from "react";
 import ReactDOM from "react-dom";
 import App from "./App";
 import { render, fireEvent } from "@testing-library/react";
+import "@testing-library/jest-dom/";
 
 it("renders without crashing", () => {
   const div = document.createElement("div");
@@ -14,6 +15,9 @@ test("header renders", () => {
   const title = getByText(/women's world cup/i);
 
   expect(title).toBeTruthy();
+  expect(title).toHaveTextContent("Women's World Cup");
+  expect(title).toBeVisible();
+  expect(title).toBeInTheDocument();
 });
 
 test("button renders and fires", () => {
@@ -25,4 +29,7 @@ test("button renders and fires", () => {
   const button = getByText(/dark mode/i);
   expect(button).toBeTruthy();
   expect(button).not.toBeFalsy();
+  expect(button).toBeInTheDocument();
+  expect(button).toBeVisible();
+  expect(button).toHaveTextContent("Dark Mode");
 });

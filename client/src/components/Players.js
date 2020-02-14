@@ -11,9 +11,9 @@ function Players() {
   const { data } = useApi("http://localhost:5000/api/players");
 
   return (
-    <div>
+    <div data-testid="main-container">
       <h2>Most Searched Players: </h2>
-      <div className="players-container">
+      <div data-testid="player-container" className="players-container">
         {data &&
           data.map((player) => (
             <div key={player.id} style={styles}>

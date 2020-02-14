@@ -12,8 +12,8 @@ function App() {
   };
 
   return (
-    <div className="App">
-      <nav>
+    <div data-testid="main-container" className="App">
+      <nav data-testid="navbar">
         <h1>Women's World Cup</h1>
         <button data-testid="toggle-btn" onClick={toggleMode}>
           Dark Mode
